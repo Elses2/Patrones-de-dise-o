@@ -1,0 +1,1 @@
+public class Camion implements Transporte{}
