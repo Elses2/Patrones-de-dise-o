@@ -1,0 +1,39 @@
+// Interfaz Shape
+interface Shape {
+    void draw();
+}
+
+// Clase LegacyRectangle que queremos adaptar
+class LegacyRectangle {
+    public void drawRectangle(int x, int y, int width, int height) {
+        System.out.println("Dibujando rectángulo en las coordenadas (" + x + ", " + y + ") con ancho " + width + " y alto " + height);
+    }
+}
+
+// Adaptador para LegacyRectangle que implementa la interfaz Shape
+class RectangleAdapter implements Shape {
+    private LegacyRectangle legacyRectangle;
+
+    public RectangleAdapter(LegacyRectangle legacyRectangle) {
+        this.legacyRectangle = legacyRectangle;
+    }
+
+    public void draw() {
+        // Llamamos al método drawRectangle de LegacyRectangle
+        legacyRectangle.drawRectangle(0, 0, 100, 50);
+    }
+}
+
+// Ejemplo de uso
+public class Main {
+    public static void main(String[] args) {
+        // Creamos un objeto LegacyRectangle
+        LegacyRectangle legacyRectangle = new LegacyRectangle();
+
+        // Creamos un adaptador para LegacyRectangle
+        Shape adaptedRectangle = new RectangleAdapter(legacyRectangle);
+
+        // Utilizamos el adaptador como si fuera una Shape
+        adaptedRectangle.draw();
+    }
+}
