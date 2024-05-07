@@ -1,0 +1,1 @@
+Los patrones de comportamiento se encargan de una comunicación efectiva y la asignación de responsabilidades entre objetos.
